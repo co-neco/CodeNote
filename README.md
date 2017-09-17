@@ -21,7 +21,7 @@ how much do you think the value of a and b?
 The answer is that a equal to 3 and b equal to 4.
 although we write the initializtion like this:b(n++),a(n++),but the order initializing them is the order what we declare them.
 
-###2.Why can template only be implementated in header file?
+### 2.Why can template only be implementated in header file?
 When I use a header file to write template class,and the implementation in cpp,there is many errors like this:undefined reference to ....
 After that,I look up about much time,but no satisfied answer(which says not including .h to the main cpp).
 Last,stackoverflow gives me a perfect answer,so I want to share the URL:http://stackoverflow.com/questions/495021/why-can-templates-only-be-implemented-in-the-header-file
