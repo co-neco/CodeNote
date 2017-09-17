@@ -1,4 +1,9 @@
-1)about rebase.exe:
-  in recent VS versions,many obsolete or deprecated tools have been removed from the Windows SDK,in which include the ReBase.exe which is ususally useful when we want to accelerate the loading time of .exe files because of the relocation(ImageBase).why the application is removed?when I searched for the reason in stackflow,I found the answer may result from two aspects.
-  the first is that VS provides a new tool called editbin.exe,which has a option /reabse.Because the feature of ReBase.exe can be implemented by editbin.exe,so ReBase.exe may be considered as obsolete and was removed.
-  the second is Because of the feature called ASLR(address space layout randomization),which provides an useful protection towards memory violation such as heap and stack overflow or underflow.The feature is not compatible with relocation.So ReBase.exe. was removed.So there is a warning we should note:we should set /dynamicbase:no when using relocation.
+# 1)about rebase.exe:
+  In recent VS versions,many obsolete or deprecated tools have been removed from the Windows SDK,in which include the ReBase.exe which is
+  ususally useful when we want to accelerate the loading time of .exe files because of the relocation(ImageBase).why the application is
+  removed?when I searched for the reason in stackflow,I found the answer may result from two aspects.
+  The first is that VS provides a new tool called editbin.exe,which has a option /reabse.Because the feature of ReBase.exe can be
+  implemented by editbin.exe,so ReBase.exe may be considered as obsolete and was removed.
+  The second is Because of the feature called ASLR(address space layout randomization),which provides an useful protection towards memory
+  violation such as heap and stack overflow or underflow.The feature is not compatible with relocation.So ReBase.exe. was removed.So there
+  is a warning we should note:we should set /dynamicbase:no when using relocation.
