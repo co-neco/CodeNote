@@ -40,3 +40,7 @@ uses MyClass<int>
 uses Box
 
 When foo.cpp is compiled,the corresponding code won't be generated.So when compiler compiles bar.cpp and wants to create a MyClass<int>,it can't see MyClass<T>(can only see the interface in foo.h) and create Myclass<int>.However,the Box's code can be created.Because when compiling foo.cpp,the code of Box has already been created.
+    
+### 3.About rebase(and relocation)
+
+### 4.about PEX_LDR_DATA and LOD_MODULE 
