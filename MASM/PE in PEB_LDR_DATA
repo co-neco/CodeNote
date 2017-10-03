@@ -20,9 +20,11 @@
     } PEB_LDR_DATA, *PPEB_LDR_DATA;
     
 link:https://www.geoffchappell.com/studies/windows/win32/ntdll/structs/peb_ldr_data.htm
+(Note although the two structures are different,the contexts are the same.For example,in win 8,'offset PEB_LDR_DATA + 0x1ch' also means
+the address of 'LIST_ENTRY InInitializationOrderModuleList')
     
     
-2.the InLoadOrderModuleList,a header,is a pointer to a double-linked list,which points to LIST_ENTRY structure in a module's
+2.the InLoadOrderModuleList,a header,is a pointer to a double-linked list,which points to a LIST_ENTRY structure(LoadOrder) in a module's
   LOD_MODULE,and the same as InMemoryOrderModuleList and InInitializationOrderModuleList.
   Note the offset of LIST_ENTRY in all modules' LDO_MODULE.
   eg:DllBase in LoadOrder is 0x18
