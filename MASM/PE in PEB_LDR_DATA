@@ -1,4 +1,4 @@
-1.note the structure of PEB_LDR_DATA in msdn is different with that in early versions(includes VISTA,since win 7).
+1.note the structure of PEB_LDR_DATA in msdn is different with that in early versions(includes VISTA,bring difference since win 7).
   before win 7:
     typedef struct _PEB_LDR_DATA {
       BYTE       Reserved1[8];
