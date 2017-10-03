@@ -1,0 +1,5 @@
+When using the function CreateRemoteThread,we have two choices choosing the base address of the remote thread.The one is use LoadLibrary 
+(remote thread) and inject a DLL.When a DLL_PROCESS_ATTACH is notified,we can implement our thread in DllMain.The other is directly use a 
+thread we write,but note in the thread,we can only use dynamic loading of functions,which includes getting the address of kernel32.dll.
+Because if we use functions such as GetModuleHandle,the 'call' instruction will jump to a 'jmp' instruction,which may cause a access 
+violation in target process's virtual space.
