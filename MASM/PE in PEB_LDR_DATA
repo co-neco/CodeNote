@@ -1,0 +1,33 @@
+1.note the structure of PEB_LDR_DATA in msdn is different with that in early versions(includes VISTA,since win 7).
+  before win 7:
+    typedef struct _PEB_LDR_DATA {
+      BYTE       Reserved1[8];
+      PVOID      Reserved2[3];
+      LIST_ENTRY InMemoryOrderModuleList;
+    } PEB_LDR_DATA, *PPEB_LDR_DATA;
+    
+  since win 7:
+    typedef struct _PEB_LDR_DATA {
+      ULONG Length;
+      BOOLEAN Initialized;
+      PVOID SsHandle;
+      LIST_ENTRY InLoadOrderModuleList;
+      LIST_ENTRY InMemoryOrderModuleList;
+      LIST_ENTRY InInitializationOrderModuleList;
+      PVOID EntryInProgress;
+      BOOLEAN ShutdownInProgress;
+      HANDLE ShutdownThreadId;
+    } PEB_LDR_DATA, *PPEB_LDR_DATA;
+    
+link:https://www.geoffchappell.com/studies/windows/win32/ntdll/structs/peb_ldr_data.htm
+    
+    
+2.the InLoadOrderModuleList,a header,is a pointer to a double-linked list,which points to LIST_ENTRY structure in a module's
+  LOD_MODULE,and the same as InMemoryOrderModuleList and InInitializationOrderModuleList.
+  Note the offset of LIST_ENTRY in all modules' LDO_MODULE.
+  eg:DllBase in LoadOrder is 0x18
+     DllBase in InitializationOrdder is 0x08(the InInitializationOrderModuleList points to the LIST_ENTRY in a module's 
+     LOD_MODULE,which already has a offset 0x10 )
+  
+  （the structure LOD_MODULE can be refered in the URL:http://sandsprite.com/CodeStuff/Understanding_the_Peb_Loader_Data_List.html）
+  
