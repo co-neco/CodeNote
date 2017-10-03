@@ -43,4 +43,4 @@ When foo.cpp is compiled,the corresponding code won't be generated.So when compi
     
 ### 3.About rebase(and relocation)
 
-### 4.about PEX_LDR_DATA and LOD_MODULE 
+### 4.About PEX_LDR_DATA and LOD_MODULE in PE(MASM32)
