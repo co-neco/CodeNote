@@ -3,3 +3,5 @@ When using the function CreateRemoteThread,we have two choices choosing the base
 thread we write,but note in the thread,we can only use dynamic loading of functions,which includes getting the address of kernel32.dll.
 Because if we use functions such as GetModuleHandle,the 'call' instruction will jump to a 'jmp' instruction,which may cause a access 
 violation in target process's virtual space.
+
+refer the details:https://stackoverflow.com/questions/39261436/createremotethread-fails-maybe-the-lpbaseaddress-in-the-target-process-is-invali#
